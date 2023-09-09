@@ -1,0 +1,12 @@
+apiVersion: skaffold/v2beta29
+kind: Config
+metadata:
+  name: k8s-provider
+deploy:
+  kubectl:
+    manifests: ["deployment.yaml"]
+build:
+  artifacts:
+  - image: k8s-provider
+    context: ./
+    docker: {}

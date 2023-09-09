@@ -1,0 +1,13 @@
+server.port: 20000
+spring:
+  application:
+    name: kubernetes-consumer
+  cloud:
+    kubernetes:
+      discovery:
+        include-not-ready-addresses: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

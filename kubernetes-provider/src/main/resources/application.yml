@@ -1,0 +1,13 @@
+server.port: 20001
+spring:
+  application:
+    name: kubernetes-provider
+  cloud:
+    kubernetes:
+      discovery:
+        include-not-ready-addresses: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
