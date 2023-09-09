@@ -1,6 +1,6 @@
 # spring cloud kubernetes demo
 ## 1. 项目介绍
-一个用于演示spring cloud kubernetes的学习项目，包含了spring cloud kubernetes的各种组件的使用方式，以及一些常用的配置方式。
+一个集成了[spirng-cloud-kubernetes](https://docs.spring.io/spring-cloud-kubernetes/docs/current/reference/html/#why-do-you-need-spring-cloud-kubernetes)的学习项目，包含了spring cloud kubernetes的各种组件的使用方式，以及一些常用的配置方式。
 其中使用了google cloud code插件，通过编写skaffold.yaml、Dockerfile、k8s.yaml实现在本地一键启动debug模式。
 
 ## 2. 项目特性
