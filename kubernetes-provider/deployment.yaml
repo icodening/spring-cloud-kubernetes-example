@@ -5,7 +5,7 @@ metadata:
 data:
   application.yml: |
     spring.jackson.serialization.INDENT_OUTPUT: true
-    kubernetes.provider.hello: sayHello123
+    kubernetes.provider.hello: hello world
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -30,10 +30,6 @@ spec:
           env:
             - name: TZ
               value: Asia/Shanghai
-          # volumeMounts:
-          #   - mountPath: /app/config
-          #     name: k8s-provider-config
-          #     readOnly: true
           resources:
             requests:
               memory: "512Mi"
@@ -41,13 +37,6 @@ spec:
             limits:
               memory: "512Mi"
               cpu: "1"
-      # volumes:
-      #   - name: k8s-provider-config
-      #     configMap:
-      #       name: k8s-provider-config
-      #       items:
-      #         - key: application.yml
-      #           path: application.yml
           
 ---
 apiVersion: v1
