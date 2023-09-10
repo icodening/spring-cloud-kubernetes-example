@@ -1,7 +1,7 @@
 server.port: 20000
 spring:
   application:
-    name: kubernetes-consumer
+    name: k8s-consumer
   cloud:
     kubernetes:
       discovery:

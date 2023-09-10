@@ -1,0 +1,10 @@
+server.port: 20001
+spring:
+  application:
+    name: k8s-provider
+  cloud:
+    kubernetes:
+      discovery:
+        include-not-ready-addresses: false
+      reload:
+        enabled: true

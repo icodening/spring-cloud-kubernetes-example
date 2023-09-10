@@ -1,19 +1,11 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: k8s-provider-config
+  name: k8s-provider
 data:
   application.yml: |
-    server.port: 20001
-    spring.application.name: k8s-provider
-    spring.cloud.kubernetes.reload.enabled: true
-    spring.cloud.kubernetes.reload.monitoring-config-maps: true
-    spring.cloud.kubernetes.reload.mode: polling
-    spring.cloud.kubernetes.reload.period: 5000ms
-    spring.cloud.kubernetes.client.namespace: default
-    spring.cloud.kubernetes.client.service-account.name: default
     spring.jackson.serialization.INDENT_OUTPUT: true
-    kubernetes.provider.hello: sayHello
+    kubernetes.provider.hello: sayHello123
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -38,10 +30,10 @@ spec:
           env:
             - name: TZ
               value: Asia/Shanghai
-          volumeMounts:
-            - mountPath: /app/config
-              name: k8s-provider-config
-              readOnly: true
+          # volumeMounts:
+          #   - mountPath: /app/config
+          #     name: k8s-provider-config
+          #     readOnly: true
           resources:
             requests:
               memory: "512Mi"
@@ -49,13 +41,13 @@ spec:
             limits:
               memory: "512Mi"
               cpu: "1"
-      volumes:
-        - name: k8s-provider-config
-          configMap:
-            name: k8s-provider-config
-            items:
-              - key: application.yml
-                path: application.yml
+      # volumes:
+      #   - name: k8s-provider-config
+      #     configMap:
+      #       name: k8s-provider-config
+      #       items:
+      #         - key: application.yml
+      #           path: application.yml
           
 ---
 apiVersion: v1
